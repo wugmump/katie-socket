@@ -10,18 +10,54 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 431.0, 186.0, 1030.0, 592.0 ],
+		"rect" : [ 56.0, 315.0, 999.0, 642.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"style" : "jgo2024",
 		"subpatcher_template" : "jgoDarkBlue",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-27",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 805.0, 69.5, 150.0, 33.0 ],
+					"text" : "substitute + characters for spaces"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 545.0, 75.0, 253.0, 22.0 ],
+					"text" : "get http://localhost:3000/?message=borp+bop"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "dictionary", "" ],
+					"patching_rect" : [ 545.0, 123.0, 45.0, 22.0 ],
+					"text" : "maxurl"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-22",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 56.0, 340.0, 64.0, 22.0 ],
+					"patching_rect" : [ 219.5, 304.0, 64.0, 22.0 ],
 					"text" : "script start"
 				}
 
@@ -77,7 +113,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 144.0, 340.0, 213.0, 22.0 ],
+					"patching_rect" : [ 144.0, 340.0, 215.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
@@ -86,9 +122,9 @@
 						"watch" : 0
 					}
 ,
-					"text" : "node.script node-client.js @autostart 1",
+					"text" : "node.script katiesocket.js @autostart 1",
 					"textfile" : 					{
-						"filename" : "node-client.js",
+						"filename" : "katiesocket.js",
 						"flags" : 0,
 						"embed" : 0,
 						"autowatch" : 1
@@ -138,7 +174,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 133.0, 172.0, 177.0, 22.0 ]
+					"patching_rect" : [ 133.0, 172.0, 177.0, 22.0 ],
+					"presentation_linecount" : 2,
+					"text" : "borp bop"
 				}
 
 			}
@@ -206,6 +244,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-7", 1 ],
 					"source" : [ "obj-4", 0 ]
 				}
@@ -234,6 +279,13 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "katiesocket.js",
+				"bootpath" : "~/Documents/NYU/370wall/katie-socket",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "mxj.mxo",
 				"type" : "iLaX"
 			}
@@ -241,13 +293,6 @@
 				"name" : "n4m.monitor.maxpat",
 				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "node-client.js",
-				"bootpath" : "~/Documents/NYU/370wall/katie-socket",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
